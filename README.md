@@ -1,4 +1,4 @@
-# Polling rate tester by Gamepadla
+# Polling rate tester
 Program for testing the polling rates of gamepads  
 Based on the method of Christian P.: https://github.com/chrizonix/XInputTest  
 Pyhon code written by John Punch: https://reddit.com/user/JohnnyPunch  
