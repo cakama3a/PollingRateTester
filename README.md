@@ -1,7 +1,7 @@
 # Gamepadla
 Gamepads latency tester and polling rate program  
 Based on the method of Christian P.: https://github.com/chrizonix/XInputTest  
-Pyhon code written by John Punch: https://t.me/ivanpunch
+Pyhon code written by John Punch: https://reddit.com/user/JohnnyPunch  
 
      ██████╗  █████╗ ███╗   ███╗███████╗██████╗  █████╗ ██████╗ ██╗      █████╗
     ██╔════╝ ██╔══██╗████╗ ████║██╔════╝██╔══██╗██╔══██╗██╔══██╗██║     ██╔══██╗
