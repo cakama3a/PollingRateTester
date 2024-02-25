@@ -1,22 +1,27 @@
-ver = "3.1.0"
-print(f" ")
-print(f" ")
-print(f"   ██████╗  █████╗ ███╗   ███╗███████╗██████╗  █████╗ ██████╗ \033[38;5;206m██╗      █████╗ \033[0m")
-print(f"  ██╔════╝ ██╔══██╗████╗ ████║██╔════╝██╔══██╗██╔══██╗██╔══██╗\033[38;5;206m██║     ██╔══██╗\033[0m")
-print(f"  ██║  ███╗███████║██╔████╔██║█████╗  ██████╔╝███████║██║  ██║\033[38;5;206m██║     ███████║\033[0m")
-print(f"  ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝  ██╔═══╝ ██╔══██║██║  ██║\033[38;5;206m██║     ██╔══██║\033[0m")
-print(f"  ╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗██║     ██║  ██║██████╔╝\033[38;5;206m███████╗██║  ██║\033[0m")
-print(f"   ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝╚═╝     ╚═╝  ╚═╝╚═════╝ \033[38;5;206m╚══════╝╚═╝  ╚═╝\033[0m")
-print(f"    \033[38;5;206mPolling Rate Tester\033[0m  " + ver + "                         https://gamepadla.com")
-print(f" ")
-print(f" ")
-print(f"Based on the method of: https://github.com/chrizonix/XInputTest")
-
+ver = "3.1.1"
 # Підключаємо бібліотеки
-import pygame
 import time
 import numpy as np
+from colorama import init, AnsiToWin32, Fore, Back, Style
 import sys
+
+# Ініціалізація colorama
+init(wrap=False)
+stream = AnsiToWin32(sys.stdout).stream
+
+print(f" ")
+print(f" ")
+print("   ██████╗  █████╗ ███╗   ███╗███████╗██████╗  █████╗ ██████╗ " + Fore.LIGHTMAGENTA_EX + "██╗      █████╗ " + Fore.RESET)
+print("  ██╔════╝ ██╔══██╗████╗ ████║██╔════╝██╔══██╗██╔══██╗██╔══██╗" + Fore.LIGHTMAGENTA_EX + "██║     ██╔══██╗" + Fore.RESET)
+print("  ██║  ███╗███████║██╔████╔██║█████╗  ██████╔╝███████║██║  ██║" + Fore.LIGHTMAGENTA_EX + "██║     ███████║" + Fore.RESET)
+print("  ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝  ██╔═══╝ ██╔══██║██║  ██║" + Fore.LIGHTMAGENTA_EX + "██║     ██╔══██║" + Fore.RESET)  
+print("  ╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗██║     ██║  ██║██████╔╝" + Fore.LIGHTMAGENTA_EX + "███████╗██║  ██║" + Fore.RESET)
+print("   ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝╚═╝     ╚═╝  ╚═╝╚═════╝ " + Fore.LIGHTMAGENTA_EX + "╚══════╝╚═╝  ╚═╝" + Fore.RESET)
+print(Fore.LIGHTMAGENTA_EX + "    " + "Polling Rate Tester" + Fore.RESET + "  " + ver + "                         https://gamepadla.com")
+print(f" ")
+print(f" ")
+import pygame
+print(f"Based on the method of: https://github.com/chrizonix/XInputTest")
 
 # Розрахунок максиально можливого полінг рейту на базі існуючого
 def get_polling_rate_max(actual_rate):
@@ -100,12 +105,13 @@ while True:
             stability = round((polling_rate / poling_max) * 100, 2)
 
             # Вивід інформації в строку з перезаписом
-            sys.stdout.write(
-                "\033[A\033[KPolling Rate: {:.2f} [{} Hz]   |   Stability: {:.2f}%\n".format(
-                    polling_rate, poling_max, stability
-                )
-            )
-            sys.stdout.flush()
+            # Вивід інформації з перезаписом в тому ж рядку
+            # Вивід інформації з перезаписом в тому ж рядку
+            # Очищення попереднього рядка і вивід нового рядка з перезаписом
+            stream.write("\r\033[KPolling Rate: {:.2f} [{} Hz]   |   Stability: {:.2f}%".format(
+                polling_rate, poling_max, stability
+            ))
+            stream.flush()
 
         # Якщо не було попередніх позицій, то створюємо їх
         if prev_x is None and prev_y is None:
