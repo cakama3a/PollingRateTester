@@ -1,4 +1,4 @@
-ver = "3.1.1"
+ver = "3.1.2"
 # Підключаємо бібліотеки
 import time
 import numpy as np
@@ -20,8 +20,9 @@ print("   ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚�
 print(Fore.LIGHTMAGENTA_EX + "    " + "Polling Rate Tester" + Fore.RESET + "  " + ver + "                         https://gamepadla.com")
 print(f" ")
 print(f" ")
+print(f"Credits:")
+print("Based on the method of: https://github.com/chrizonix/XInputTest")
 import pygame
-print(f"Based on the method of: https://github.com/chrizonix/XInputTest")
 
 # Розрахунок максиально можливого полінг рейту на базі існуючого
 def get_polling_rate_max(actual_rate):
@@ -104,9 +105,6 @@ while True:
             # Розрахунок стабільності у відсотках
             stability = round((polling_rate / poling_max) * 100, 2)
 
-            # Вивід інформації в строку з перезаписом
-            # Вивід інформації з перезаписом в тому ж рядку
-            # Вивід інформації з перезаписом в тому ж рядку
             # Очищення попереднього рядка і вивід нового рядка з перезаписом
             stream.write("\r\033[KPolling Rate: {:.2f} [{} Hz]   |   Stability: {:.2f}%".format(
                 polling_rate, poling_max, stability
