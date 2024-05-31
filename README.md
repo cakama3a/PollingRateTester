@@ -1,3 +1,5 @@
+Polling Rate Tester has errors and its algorithms are outdated, use https://github.com/cakama3a/Gamepadla instead!!!
+
 # Polling rate tester
 Program for testing the polling rates of gamepads  
 Based on the method of Christian P.: https://github.com/chrizonix/XInputTest  
